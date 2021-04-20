@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="css/presentation.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-image="./assets/hamlet.jpg">
+            <h1 style="position: relative; top: 80px;">To learn or not to learn?</h1>
+        </section>
+        <section>
+            <section>
+                <h2>TypeScript crash course</h2>
+                <img src="assets/ts-is-superset-of-js.png" class="fragment"/>
+                <aside class="notes">
+                    <ol>
+                        <li>superset</li>
+                        <li>compiler</li>
+                        <li>JS is valid TS</li>
+                    </ol>
+                </aside>
+            </section>
+            <section data-auto-animate>
+                <h4>Types definition</h4>
+                <pre data-id="code-animation1"><code class="typescript" data-trim data-line-numbers>
+                    let a = 1;
+                    let b = 'sth';
+                    let c = [1, 2, 3];
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Types definition</h4>
+                <pre data-id="code-animation1"><code class="typescript" data-trim data-line-numbers>
+                    let a: number = 1;
+                    let b: string = 'sth';
+                    let c: number[] = [1, 2, 3];
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Types definition</h4>
+                <pre data-id="code-animation1"><code class="typescript" data-trim data-line-numbers>
+                    let a: number = 1;
+                    let b: string = 'sth';
+                    let c: number[] = [1, 2, 3];
+                    let d: Array&ltnumber&gt = [1, 2, 3];
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Functions definition</h4>
+                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
+                    function add(a: number, b: number): number {
+                        return a + b;
+                    }
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Functions definition</h4>
+                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
+                    function add(a: number, b: number): number {
+                        return a + b;
+                    }
+
+                    let result = add(1, 2);
+                    console.log(result); // 3
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Type checking</h4>
+                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
+                    function add(a: number, b: number): number {
+                        return a + b;
+                    }
+
+                    let result = add('John', 'Doe'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+                    console.log(result);
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Interfaces</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    interface Medcom {
+                        id: string;
+                        type: MedcomType;
+                        raw: string
+                        ...
+                    }
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Interfaces</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    interface Medcom {
+                        id: string;
+                        type: MedcomType;
+                        raw: string
+                        ...
+                    }
+
+                    let medcom: Medcom = {
+                        id: 1000001,
+                        type: MedcomType.ClinicalEmail
+                        raw: "&lt?xml version="1.0" encoding="UTF-8"?&gt ....."
+                    };
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Interfaces</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    interface AbstractMessage {
+                        type: MedcomType;
+                        id: string
+                        raw: string
+                    }
+
+                    interface Medcom extends AbstractMessage {
+                        ...
+                    }
+
+                    let medcom: Medcom = {
+                        id: 1000001,
+                        type: MedcomType.ClinicalEmail
+                        raw: "&lt?xml version="1.0" encoding="UTF-8"?&gt ....."
+                    };
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Classes</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    abstract class AbstractMessage {
+                        type: MedcomType;
+                        id: string
+                        raw: string
+                    }
+
+                    class Medcom extends AbstractMessage {
+                        ...
+                    }
+
+                    let medcom: Medcom = {
+                        id: 1000001,
+                        type: MedcomType.ClinicalEmail
+                        raw: "&lt?xml version="1.0" encoding="UTF-8"?&gt ....."
+                    };
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Classes</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    abstract class AbstractMessage {
+                        type: MedcomType;
+                        id: string
+                        raw: string
+                    }
+
+                    class Medcom extends AbstractMessage {
+                        ...
+                    }
+
+                    let medcom = new Medcom(MedcomType.ClinicalEmail);
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Generics</h4>
+                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
+                    abstract class AbstractMessage {
+                        id: string
+                        raw: string
+                    }
+
+                    class Medcom&ltT&gt extends AbstractMessage {
+                        ...
+                    }
+
+                    let medcom = new Medcom&ltClinicalEmail&gt;
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Structural typing</h4>
+                <pre><code class="typescript" data-trim data-line-numbers>
+                    interface PatientBusinessKey {
+                        number: string;
+                        type: string;
+                    }
+
+                    class Patient {
+                        patientBusinessKey: PatientBusinessKey;
+                    }
+
+                    function render(patientBusinessKey: PatientBusinessKey) {
+                        ...
+                    }
+                </code></pre>
+                <pre data-id="duck-typing"><code class="typescript" data-trim data-line-numbers>
+                    let patient: Patient = ...
+                    renderCpr(patient.patientBusinessKey); // This is fine
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Structural typing</h4>
+                <pre><code class="typescript" data-trim data-line-numbers>
+                    interface PatientBusinessKey {
+                        number: string;
+                        type: string;
+                    }
+
+                    class Patient {
+                        patientBusinessKey: PatientBusinessKey;
+                    }
+
+                    function render(patientBusinessKey: PatientBusinessKey) {
+                        ...
+                    }
+                </code></pre>
+                <pre data-id="duck-typing"><code class="typescript" data-trim data-line-numbers>
+                    let noIdeaWhatItIs = {
+                        number: "123456789",
+                        type: "CPR"
+                    };
+
+                    render(noIdeaWhatItIs); // This is fine too!
+                </code></pre>
+            </section>
+            <section data-auto-animate>
+                <h4>Structural typing</h4>
+                <h4>(Duck typing)</h4>
+                <pre><code class="typescript" data-trim data-line-numbers>
+                    interface PatientBusinessKey {
+                        number: string;
+                        type: string;
+                    }
+
+                    class Patient {
+                        patientBusinessKey: PatientBusinessKey;
+                    }
+
+                    function render(patientBusinessKey: PatientBusinessKey) {
+                        ...
+                    }
+                </code></pre>
+                <pre data-id="duck-typing"><code class="typescript" data-trim data-line-numbers>
+                    let noIdeaWhatItIs = {
+                        number: "123456789",
+                        type: "CPR"
+                    };
+
+                    render(noIdeaWhatItIs); // This is fine too!
+                </code></pre>
+            </section>
+            <section>
+                <p>TypeScript was created to help developing JavaScript.</p>
+                <p class="fragment">It's intention was to:</p>
+                <ul>
+                    <li class="fragment">Not break existing code</li>
+                    <li class="fragment">Allow to add types incrementally to the project
+                        <ul class="fragment">
+                            <li>It's fine to use JavaScript and to add types only when you really want</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">Work in all browsers
+                        <ul>
+                            <li class="fragment">Transpilation</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">Evolve with the standard
+                        <ul>
+                            <li class="fragment">Implements all ESNext features</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Let's code</h1>
+                <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/source.gif">
+            </section>
+            <section>
+                <h3>What we learned:</h3>
+                <ul>
+                    <li class="fragment">We can define our own types ad hoc</li>
+                    <li class="fragment">We can use type completion when using typed objects and functions</li>
+                    <li class="fragment">Also when using components from libraries!</li>
+                    <li class="fragment">Compiler will defend us from bigger pool of errors</li>
+                    <li class="fragment">The more we <span style="font-style: italic; font-weight: bold">type</span>,
+                        the
+                        more we get
+                    </li>
+                    <li class="fragment">
+                    <span style="display: flex; align-content: center; align-items: center;">
+                        <span>Sounds familiar?</span>
+                        <img style="width: 6%; height: auto;" src="assets/java.webp" class="fragment"/>
+                    </span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <img src="assets/handshake.jpg"/>
+                <aside class="notes">
+                    <p>napisać Selecta (import jest gotowy)</p>
+                    <p>uzupełnić propsy</p>
+                    <p>team mate dodający customowy komponent Options - a potem poprawnie</p>
+                    <p>odkomentować translacje i powiedzieć o modules.d.ts</p>
+                    <p>propTypes</p>
+                </aside>
+            </section>
+            <section>
+                <h3>What we learned</h3>
+                <ul>
+                    <li class="fragment">Using <span style="font-style: italic">our</span> libraries will be easier
+                        thanks to types
+                    </li>
+                    <li class="fragment">
+                        <span>We can exchange <span style="font-style: italic">propTypes</span> for interfaces</span>
+                        <ul>
+                            <li>With caveats</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">We have to maintain <code>modules.d.ts</code> file or resign from implicit
+                        <code>any</code> prevention
+                    </li>
+                    <li class="fragment">We have to accept mixing JS with TS and patching missing types for some time
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3>Advanced features</h3>
+            <div class="fragment" style="display: flex; justify-content: space-between">
+                <div>
+                    <ul>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types">Literal
+                            Types</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types">Union
+                            Types</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases">Type
+                            Aliases</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html">Utility Types</a>
+                        </li>
+                        <li>
+                            <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#other-types-to-know-about">Special
+                                Types</a></li>
+                        <li>Type manipulations</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/enums.html">Enums</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html">Declaration
+                            Merging</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads">Function
+                            Overloads</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html">Narrowing
+                            (especially Type Guards)</a></li>
+                        <li>Access modifiers<br/>(public, private, readonly)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <img src="https://www.geekfeed.com/wp-content/uploads/2017/07/uncle-ben-1.jpg"/>
+            <aside class="notes">
+                <p>withPatientModal - I wanted to be cool</p>
+                <p>Marcin poprawił - czy jest lepiej? Nie wiem</p>
+            </aside>
+        </section>
+        <section data-auto-animate>
+            <img src="https://sites.google.com/site/unclebobconsultingllc/_/rsrc/1506631763576/home/Screen%20Shot%202017-09-28%20at%203.44.41%20PM.jpg"/>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+    Reveal.addEventListener('ready', function (event) {
+        Reveal.slide(100, 100);
+    });
+</script>
+</body>
+</html>
