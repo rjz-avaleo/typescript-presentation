@@ -49,15 +49,6 @@
                 </code></pre>
             </section>
             <section data-auto-animate>
-                <h4>Types definition</h4>
-                <pre data-id="code-animation1"><code class="typescript" data-trim data-line-numbers>
-                    let a: number = 1;
-                    let b: string = 'sth';
-                    let c: number[] = [1, 2, 3];
-                    let d: Array&ltnumber&gt = [1, 2, 3];
-                </code></pre>
-            </section>
-            <section data-auto-animate>
                 <h4>Functions definition</h4>
                 <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
                     function add(a: number, b: number): number {
@@ -116,86 +107,11 @@
                 </code></pre>
             </section>
             <section data-auto-animate>
-                <h4>Interfaces</h4>
-                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
-                    interface AbstractMessage {
-                        type: MedcomType;
-                        id: string
-                        raw: string
-                    }
-
-                    interface Medcom extends AbstractMessage {
-                        ...
-                    }
-
-                    let medcom: Medcom = {
-                        id: 1000001,
-                        type: MedcomType.ClinicalEmail
-                        raw: "&lt?xml version="1.0" encoding="UTF-8"?&gt ....."
-                    };
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Classes</h4>
-                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
-                    abstract class AbstractMessage {
-                        type: MedcomType;
-                        id: string
-                        raw: string
-                    }
-
-                    class Medcom extends AbstractMessage {
-                        ...
-                    }
-
-                    let medcom: Medcom = {
-                        id: 1000001,
-                        type: MedcomType.ClinicalEmail
-                        raw: "&lt?xml version="1.0" encoding="UTF-8"?&gt ....."
-                    };
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Classes</h4>
-                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
-                    abstract class AbstractMessage {
-                        type: MedcomType;
-                        id: string
-                        raw: string
-                    }
-
-                    class Medcom extends AbstractMessage {
-                        ...
-                    }
-
-                    let medcom = new Medcom(MedcomType.ClinicalEmail);
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Generics</h4>
-                <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
-                    abstract class AbstractMessage {
-                        id: string
-                        raw: string
-                    }
-
-                    class Medcom&ltT&gt extends AbstractMessage {
-                        ...
-                    }
-
-                    let medcom = new Medcom&ltClinicalEmail&gt;
-                </code></pre>
-            </section>
-            <section data-auto-animate>
                 <h4>Structural typing</h4>
                 <pre><code class="typescript" data-trim data-line-numbers>
                     interface PatientBusinessKey {
                         number: string;
                         type: string;
-                    }
-
-                    class Patient {
-                        patientBusinessKey: PatientBusinessKey;
                     }
 
                     function render(patientBusinessKey: PatientBusinessKey) {
@@ -203,8 +119,8 @@
                     }
                 </code></pre>
                 <pre data-id="duck-typing"><code class="typescript" data-trim data-line-numbers>
-                    let patient: Patient = ...
-                    renderCpr(patient.patientBusinessKey); // This is fine
+                    let cpr: PatientBusinessKey = ...
+                    render(cpr); // This is fine
                 </code></pre>
             </section>
             <section data-auto-animate>
@@ -213,36 +129,6 @@
                     interface PatientBusinessKey {
                         number: string;
                         type: string;
-                    }
-
-                    class Patient {
-                        patientBusinessKey: PatientBusinessKey;
-                    }
-
-                    function render(patientBusinessKey: PatientBusinessKey) {
-                        ...
-                    }
-                </code></pre>
-                <pre data-id="duck-typing"><code class="typescript" data-trim data-line-numbers>
-                    let noIdeaWhatItIs = {
-                        number: "123456789",
-                        type: "CPR"
-                    };
-
-                    render(noIdeaWhatItIs); // This is fine too!
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Structural typing</h4>
-                <h4>(Duck typing)</h4>
-                <pre><code class="typescript" data-trim data-line-numbers>
-                    interface PatientBusinessKey {
-                        number: string;
-                        type: string;
-                    }
-
-                    class Patient {
-                        patientBusinessKey: PatientBusinessKey;
                     }
 
                     function render(patientBusinessKey: PatientBusinessKey) {
@@ -260,7 +146,7 @@
             </section>
             <section>
                 <p>TypeScript was created to help developing JavaScript.</p>
-                <p class="fragment">It's intention was to:</p>
+                <p>It's intention was to:</p>
                 <ul>
                     <li class="fragment">Not break existing code</li>
                     <li class="fragment">Allow to add types incrementally to the project
@@ -370,15 +256,12 @@
                 </div>
             </div>
         </section>
-        <section data-auto-animate>
+        <section>
             <img src="https://www.geekfeed.com/wp-content/uploads/2017/07/uncle-ben-1.jpg"/>
             <aside class="notes">
                 <p>withPatientModal - I wanted to be cool</p>
                 <p>Marcin poprawił - czy jest lepiej? Nie wiem</p>
             </aside>
-        </section>
-        <section data-auto-animate>
-            <img src="https://sites.google.com/site/unclebobconsultingllc/_/rsrc/1506631763576/home/Screen%20Shot%202017-09-28%20at%203.44.41%20PM.jpg"/>
         </section>
         <section>
             <h3>Drawbacks</h3>
