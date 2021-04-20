@@ -380,6 +380,77 @@
         <section data-auto-animate>
             <img src="https://sites.google.com/site/unclebobconsultingllc/_/rsrc/1506631763576/home/Screen%20Shot%202017-09-28%20at%203.44.41%20PM.jpg"/>
         </section>
+        <section>
+            <h3>Drawbacks</h3>
+            <ul>
+                <li class="fragment">Using ESLint with propTypes is enough to some degree</li>
+                <li class="fragment">Learning curve</li>
+                <li class="fragment">Long and complicated compiler errors</li>
+                <li class="fragment">Temptation to overcomplicate</li>
+                <li class="fragment">
+                    <a href="https://everyday.codes/javascript/7-really-good-reasons-not-to-use-typescript/">
+                        7 really good reasons not to use TypeScript
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section style="width: calc(100% + 400px); position: relative; left: -200px;">
+            <section data-auto-animate>
+                <h3>One last example</h3>
+                <pre class="fragment" style="height: 500px;" data-id="last-java-example">
+                    <code class="typescript" data-trim data-line-numbers>
+                        function toPagesResource(
+                            pageSize,
+                            patientId,
+                            messages,
+                            linksAssembler) {
+
+                            Preconditions.checkNotNull(pageSize);
+                            Preconditions.checkNotNull(messages);
+
+                            return new PagesResource.Builder(new MessageResourcePagesResource())
+                                    .withPageSize(pageSize)
+                                    .withTotalItems(messages.size())
+                                    .withPages(toPages(pageSize, messages, patientId, linksAssembler))
+                                    .build();
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section data-auto-animate>
+                <h3>One last example</h3>
+                <pre style="height: 500px;" data-id="last-java-example">
+                    <code class="java" data-trim data-line-numbers>
+                        MessageResourcePagesResource toPagesResource(
+                            final Integer pageSize,
+                            final Long patientId,
+                            final List&ltLong&gt messages,
+                            final BaseMessageResourcePageLinksAssembler linksAssembler) {
+
+                            Preconditions.checkNotNull(pageSize);
+                            Preconditions.checkNotNull(messages);
+
+                            return (MessageResourcePagesResource)
+                                    new PagesResource.Builder(new MessageResourcePagesResource())
+                                    .withPageSize(pageSize)
+                                    .withTotalItems(messages.size())
+                                    .withPages(toPages(pageSize, messages, patientId, linksAssembler))
+                                    .build();
+                        }
+                    </code>
+                </pre>
+                <aside class="notes">
+                    <p>Groovy ma fajne featury wprowadzając dynamiczne typowanie</p>
+                    <p>Ale kto by się odważył powiedzieć, że czysty JS oferuje elastyczność i niesamowite
+                        możliwości?</p>
+                    <p>Poza tym TS jest supersetem JS-a, więc ma wszystkie feature'y</p>
+                    <p>Za jakiś czas i tak IntelliJ będzie Wam podpowiadał składnię do naszych bibliotek</p>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <img src="assets/thanks.png"/>
+        </section>
     </div>
 </div>
 
@@ -398,7 +469,7 @@
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
     });
     Reveal.addEventListener('ready', function (event) {
-        Reveal.slide(100, 100);
+        // Reveal.slide(0, 0);
     });
 </script>
 </body>
