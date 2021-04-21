@@ -49,36 +49,6 @@
                 </code></pre>
             </section>
             <section data-auto-animate>
-                <h4>Functions definition</h4>
-                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
-                    function add(a: number, b: number): number {
-                        return a + b;
-                    }
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Functions definition</h4>
-                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
-                    function add(a: number, b: number): number {
-                        return a + b;
-                    }
-
-                    let result = add(1, 2);
-                    console.log(result); // 3
-                </code></pre>
-            </section>
-            <section data-auto-animate>
-                <h4>Type checking</h4>
-                <pre data-id="functions-definition"><code class="typescript" data-trim data-line-numbers>
-                    function add(a: number, b: number): number {
-                        return a + b;
-                    }
-
-                    let result = add('John', 'Doe'); // Argument of type 'string' is not assignable to parameter of type 'number'.
-                    console.log(result);
-                </code></pre>
-            </section>
-            <section data-auto-animate>
                 <h4>Interfaces</h4>
                 <pre data-id="interfaces"><code class="typescript" data-trim data-line-numbers>
                     interface Medcom {
@@ -194,59 +164,8 @@
                 </li>
             </ul>
         </section>
-        <section style="width: calc(100% + 400px); position: relative; left: -200px;">
-            <section data-auto-animate>
-                <h3>One last example</h3>
-                <pre class="fragment" style="height: 500px;" data-id="last-java-example">
-                    <code class="typescript" data-trim data-line-numbers>
-                        function toPagesResource(
-                            pageSize,
-                            patientId,
-                            messages,
-                            linksAssembler) {
-
-                            Preconditions.checkNotNull(pageSize);
-                            Preconditions.checkNotNull(messages);
-
-                            return new PagesResource.Builder(new MessageResourcePagesResource())
-                                    .withPageSize(pageSize)
-                                    .withTotalItems(messages.size())
-                                    .withPages(toPages(pageSize, messages, patientId, linksAssembler))
-                                    .build();
-                        }
-                    </code>
-                </pre>
-            </section>
-            <section data-auto-animate>
-                <h3>One last example</h3>
-                <pre style="height: 500px;" data-id="last-java-example">
-                    <code class="java" data-trim data-line-numbers>
-                        MessageResourcePagesResource toPagesResource(
-                            final Integer pageSize,
-                            final Long patientId,
-                            final List&ltLong&gt messages,
-                            final BaseMessageResourcePageLinksAssembler linksAssembler) {
-
-                            Preconditions.checkNotNull(pageSize);
-                            Preconditions.checkNotNull(messages);
-
-                            return (MessageResourcePagesResource)
-                                    new PagesResource.Builder(new MessageResourcePagesResource())
-                                    .withPageSize(pageSize)
-                                    .withTotalItems(messages.size())
-                                    .withPages(toPages(pageSize, messages, patientId, linksAssembler))
-                                    .build();
-                        }
-                    </code>
-                </pre>
-                <aside class="notes">
-                    <p>Groovy ma fajne featury wprowadzając dynamiczne typowanie</p>
-                    <p>Ale kto by się odważył powiedzieć, że czysty JS oferuje elastyczność i niesamowite
-                        możliwości?</p>
-                    <p>Poza tym TS jest supersetem JS-a, więc ma wszystkie feature'y</p>
-                    <p>Za jakiś czas i tak IntelliJ będzie Wam podpowiadał składnię do naszych bibliotek</p>
-                </aside>
-            </section>
+        <section>
+            <h2>Would you like to program with Java without using types?</h2>
         </section>
         <section>
             <img src="assets/thanks.png"/>
