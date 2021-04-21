@@ -144,28 +144,6 @@
                     render(noIdeaWhatItIs); // This is fine too!
                 </code></pre>
             </section>
-            <section>
-                <p>TypeScript was created to help developing JavaScript.</p>
-                <p>It's intention was to:</p>
-                <ul>
-                    <li class="fragment">Not break existing code</li>
-                    <li class="fragment">Allow to add types incrementally to the project
-                        <ul class="fragment">
-                            <li>It's fine to use JavaScript and to add types only when you really want</li>
-                        </ul>
-                    </li>
-                    <li class="fragment">Work in all browsers
-                        <ul>
-                            <li class="fragment">Transpilation</li>
-                        </ul>
-                    </li>
-                    <li class="fragment">Evolve with the standard
-                        <ul>
-                            <li class="fragment">Implements all ESNext features</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
         </section>
         <section>
             <section>
@@ -175,9 +153,9 @@
             <section>
                 <h3>What we learned:</h3>
                 <ul>
-                    <li class="fragment">We can define our own types ad hoc</li>
                     <li class="fragment">We can use type completion when using typed objects and functions</li>
                     <li class="fragment">Also when using components from libraries!</li>
+                    <li class="fragment">We can define our own types ad hoc</li>
                     <li class="fragment">Compiler will defend us from bigger pool of errors</li>
                     <li class="fragment">The more we <span style="font-style: italic; font-weight: bold">type</span>,
                         the
@@ -193,80 +171,14 @@
             </section>
         </section>
         <section>
-            <section>
-                <img src="assets/handshake.jpg"/>
-                <aside class="notes">
-                    <p>napisać Selecta (import jest gotowy)</p>
-                    <p>uzupełnić propsy</p>
-                    <p>team mate dodający customowy komponent Options - a potem poprawnie</p>
-                    <p>propTypes</p>
-                    <p>odkomentować translacje i powiedzieć o modules.d.ts</p>
-                </aside>
-            </section>
-            <section>
-                <h3>What we learned</h3>
-                <ul>
-                    <li class="fragment">Using <span style="font-style: italic">our</span> libraries will be easier
-                        thanks to types
-                    </li>
-                    <li class="fragment">
-                        <span>We can exchange <span style="font-style: italic">propTypes</span> for interfaces</span>
-                        <ul>
-                            <li>With caveats</li>
-                        </ul>
-                    </li>
-                    <li class="fragment">We have to maintain <code>modules.d.ts</code> file or resign from implicit
-                        <code>any</code> prevention
-                    </li>
-                    <li class="fragment">We have to accept mixing JS with TS and patching missing types for some time
-                    </li>
-                </ul>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h3>Advanced features</h3>
-                <div class="fragment" style="display: flex; justify-content: space-between">
-                    <div>
-                        <ul>
-                            <li>
-                                <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types">Literal
-                                    Types</a></li>
-                            <li>
-                                <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types">Union
-                                    Types</a></li>
-                            <li>
-                                <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases">Type
-                                    Aliases</a></li>
-                            <li><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html">Utility Types</a>
-                            </li>
-                            <li>
-                                <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#other-types-to-know-about">Special
-                                    Types</a></li>
-                            <li>Type manipulations</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li><a href="https://www.typescriptlang.org/docs/handbook/enums.html">Enums</a></li>
-                            <li><a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html">Declaration
-                                Merging</a></li>
-                            <li><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads">Function
-                                Overloads</a></li>
-                            <li><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html">Narrowing
-                                (especially Type Guards)</a></li>
-                            <li>Access modifiers<br/>(public, private, readonly)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <img src="https://www.geekfeed.com/wp-content/uploads/2017/07/uncle-ben-1.jpg"/>
-                <aside class="notes">
-                    <p>withPatientModal - I wanted to be cool</p>
-                    <p>Marcin poprawił - czy jest lepiej? Nie wiem</p>
-                </aside>
-            </section>
+            <img src="assets/handshake.jpg"/>
+            <aside class="notes">
+                <p>napisać Selecta (import jest gotowy)</p>
+                <p>uzupełnić propsy</p>
+                <p>team mate dodający customowy komponent Options - a potem poprawnie</p>
+                <p>propTypes</p>
+                <p>odkomentować translacje i powiedzieć o modules.d.ts</p>
+            </aside>
         </section>
         <section>
             <h3>Drawbacks</h3>
